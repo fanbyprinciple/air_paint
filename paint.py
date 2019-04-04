@@ -117,7 +117,7 @@ while True:
 			# compute the difference between the x and y
 			# coordinates and re-initialize the direction
 			# text variables
-			dX = pts[-10][0] - pts[i][0]
+			dX = -(pts[-10][0] - pts[i][0])
 			dY = pts[-10][1] - pts[i][1]
 			(dirX, dirY) = ("", "")
 
@@ -147,7 +147,7 @@ while True:
 		cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
 
 		# draw lines on the canvas
-		cv2.line(canvas, pts[i - 1], pts[i], (0, 0, 255), thickness)
+		cv2.line(canvas, pts[i - 1], pts[i], (255,0,0), thickness)
 		
 		
 
