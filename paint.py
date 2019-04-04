@@ -159,7 +159,7 @@ while True:
 
 	# show the frame to our screen and increment the frame counter
 	cv2.imshow("Frame", frame)
-	cv2.imshow('OpenCV Paint Brush',canvas)
+	cv2.imshow('OpenCV canvas',canvas)
 	
 	key = cv2.waitKey(1) & 0xFF
 	counter += 1
