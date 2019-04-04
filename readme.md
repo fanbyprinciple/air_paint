@@ -16,4 +16,6 @@ if you want mouse controls run
 
 `python n_paint.py`
 
+Here's a gif demo -
+
 ![demo.gif](demo.gif)
