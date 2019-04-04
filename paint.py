@@ -11,8 +11,7 @@ import cv2
 import imutils
 import time
 
-
-print("Imported packages, ashwin")
+print("Imported packages sir!")
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -22,7 +21,7 @@ ap.add_argument("-b", "--buffer", type=int, default=32,
 	help="max buffer size")
 args = vars(ap.parse_args())
 
-print("Controller set")
+print("Controller are all set!")
 
 # define the lower and upper boundaries of the "green"
 # ball in the HSV color space
@@ -50,6 +49,7 @@ print("All ok video capture started!")
 # allow the camera or video file to warm up
 time.sleep(2.0)
 
+# a blank canvas for painting
 canvas = cv2.imread("white.jpg") 
 
 # keep looping
@@ -145,6 +145,8 @@ while True:
 		# draw the connecting lines
 		thickness = int(np.sqrt(args["buffer"] / float(i + 1)) * 2.5)
 		cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
+
+		# draw lines on the canvas
 		cv2.line(canvas, pts[i - 1], pts[i], (0, 0, 255), thickness)
 		
 		
@@ -166,18 +168,19 @@ while True:
 
 	# if the 'q' key is pressed, stop the loop
 	if key == ord("q"):
-		print("You quit on me !")
+		cv2.imwrite("your_creation.jpg", canvas)
+		print("Canvas saved !")
 		break
 
 # if we are not using a video file, stop the camera video stream
 if not args.get("video", False):
 	vs.stop()
-	print("I Didn't get any camera ashwin")
+	print("I didn't get any camera, Ashwin :<")
 
 # otherwise, release the camera
 else:
 	vs.release()
-	print("Bye ashwin")
+	print("B-Bye ashwin")
 
 # close all windows
 cv2.destroyAllWindows()
